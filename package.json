@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "repository": "https://github.com/JeongHoiun/memorial_h.git",
   "scripts": {
-    "start": "node ./src/index.ts",
-    "dev": "nodemon ./src/index.ts"
+    "start": "cross-env NODE_ENV=production node ./src/index.ts",
+    "dev": "cross-env NODE_ENV=development nodemon ./src/index.ts"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
     "sqlite3": "^5.1.7",
     "typescript": "^5.4.5"
   },

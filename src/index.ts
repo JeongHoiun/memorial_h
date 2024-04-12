@@ -1,3 +1,11 @@
+import dotenv from "dotenv";
+
+if (process.env.NODE_ENV == "development") {
+  dotenv.config({ path: ".env.development.local" });
+} else {
+  dotenv.config({ path: ".env" });
+}
+
 import express, { Request, Response } from "express";
 import { PORT } from "./const";
 import { getDate } from "./database/date";
