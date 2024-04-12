@@ -7,7 +7,7 @@ const port = 3000;
 const db = new sqlite3.Database(
   "./memorial.db",
   sqlite3.OPEN_READWRITE,
-  err => {
+  (err: Error | null) => {
     if (err) {
       console.error(err.message);
     }
@@ -15,8 +15,7 @@ const db = new sqlite3.Database(
 );
 
 app.get("/", (req: Request, res: Response) => {
-  db.all("SELECT * FROM lorem", (err, rows) => {
-    console.log(err, rows);
+  db.all<Date>("SELECT * FROM date", (err: Error, rows: Date) => {
     res.send(rows);
   });
 });
